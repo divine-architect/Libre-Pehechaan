@@ -14,7 +14,7 @@ def person_detect_in_id():
     detector.setModelPath( os.path.join(execution_path , r"yolov3.pt"))
     detector.loadModel()
 
-    detections, objects_path = detector.detectObjectsFromImage(input_image=os.path.join(execution_path , r"img.png"), output_image_path=os.path.join(execution_path , "image4new.jpg"), minimum_percentage_probability=30,  extract_detected_objects=True)
+    detections, objects_path = detector.detectObjectsFromImage(input_image=os.path.join(execution_path , r"Untitled.png"), output_image_path=os.path.join(execution_path , "image4new.jpg"), minimum_percentage_probability=30,  extract_detected_objects=True)
 
     for eachObject, eachObjectPath in zip(detections, objects_path):
        # print(eachObject["name"] , " : " , eachObject["percentage_probability"], " : ", eachObject["box_points"] )
@@ -25,7 +25,7 @@ def person_detect_in_id():
             return "Picutre not found. Invalid ID"
 
 def ocrfunc():
-    img = cv2.imread('img.png')
+    img = cv2.imread('Untitled.png')
     reader = easyocr.Reader(['en'])
     result = reader.readtext(img, detail = 0)
 
